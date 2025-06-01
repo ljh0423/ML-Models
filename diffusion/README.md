@@ -17,19 +17,23 @@ This repository implements a UNet-based Denoising Diffusion Probabilistic Model 
 
 Install the required Python packages:
 
-`bash
+```bash
 pip install torch torchvision timm einops matplotlib tqdm
-
+```
 
 Training
 To train the DDPM model:
-  from main import train
-  train(checkpoint_path=None)  # Or provide a checkpoint path to resume
+```python
+from main import train
+train(checkpoint_path=None)  # Or provide a checkpoint path to resume
+```
 
 Inference
 To generate samples using a trained model:
-  from main import inference
-  inference(checkpoint_path='checkpoints/ddpm_checkpoint')
+```python
+from main import inference
+inference(checkpoint_path='checkpoints/ddpm_checkpoint')
+```
 
 Notes
 The model is trained on MNIST images padded to 32×32 resolution.
