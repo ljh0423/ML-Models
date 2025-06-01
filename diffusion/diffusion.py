@@ -27,7 +27,6 @@ def train(batch_size: int=64,
     set_seed(random.randint(0, 2**32-1)) if seed == -1 else set_seed(seed)
 
     train_dataset = datasets.MNIST(root='./data', train=True, download=False,transform=transforms.ToTensor())
-    #sub_dataset = Subset(train_dataset, list(range(1024)))
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True, num_workers=4)
 
     scheduler = DDPM_Scheduler(num_time_steps=num_time_steps)
@@ -112,7 +111,7 @@ def display_reverse(images: List):
     plt.show()
 
 def main():
-    #train(checkpoint_path='checkpoints/ddpm_checkpoint', lr=2e-6, num_epochs=5)
+    train(checkpoint_path='checkpoints/ddpm_checkpoint', lr=2e-6, num_epochs=5)
     inference('checkpoints/ddpm_checkpoint2')
 
 if __name__ == '__main__':
